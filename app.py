@@ -4,10 +4,7 @@ from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
 
-try:
-    model = pickle.load(open('model_GradientBoostingClassifier.pkl', 'rb'))
-except:
-    print("Model didn't load!")
+model = pickle.load(open('model_GradientBoostingClassifier.pkl', 'rb'))
 
 @app.route('/')
 def predict():

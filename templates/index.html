@@ -15,13 +15,19 @@
 
 <body>
  <div class="login">
-	<h1>Predict Salary Analysis</h1>
+	<h1>Predict Stroke</h1>
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
-    	<input type="text" name="experience" placeholder="Experience" required="required" />
-        <input type="text" name="test_score" placeholder="Test Score" required="required" />
-		<input type="text" name="interview_score" placeholder="Interview Score" required="required" />
+    	<input type="text" name="gender" placeholder="Input patient gender, please!" required="required" />
+        <input type="text" name="age" placeholder="Input patient age, please!" required="required" />
+		<input type="text" name="hypertension" placeholder="Does the patient have hypertension? 1-Yes, 0-No" required="required" />
+        <input type="text" name="heart_disease" placeholder="Does the patient have heart disease? 1 - Yes, 0-No" required="required" />
+        <input type="text" name="work_type" placeholder="Input work type" required="required" />
+        <input type="text" name="residence_type" placeholder="Input residence type" required="required" />
+        <input type="text" name="avg_glucose_level" placeholder="Input average glucose level of patient" required="required" />
+        <input type="text" name="bmi" placeholder="Please input patient bmi" required="required" />
+        <input type="text" name="smoking_status" placeholder="Please input patient smoking status! 0/1" required="required" />
 
         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
     </form>
