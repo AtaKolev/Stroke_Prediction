@@ -6,6 +6,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.metrics import classification_report, accuracy_score, f1_score
 from sklearn.model_selection import train_test_split
+import pickle
 
 lr = LogisticRegression()
 rfc = RandomForestClassifier(n_estimators=1000)
@@ -37,6 +38,7 @@ for model in models:
         #print("Report for " + str(model) + " " + str(df) + "\n" + classification_report(y_test, y_pred))
         acc_dict.update({key:acc_functions})
     model_accuracy.update({model:acc_dict})
+    pickle.dump(model, open('model_'+str(model)[:-2]+".pkl", 'wb'))
 
 for model in models:
     print(model_accuracy[model])
