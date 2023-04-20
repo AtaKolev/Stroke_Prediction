@@ -1,0 +1,1 @@
+model_name = 'models/xgbregressor.pkl'

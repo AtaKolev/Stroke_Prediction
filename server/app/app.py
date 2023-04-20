@@ -1,29 +1,24 @@
 import pickle
 import numpy as np
 from flask import Flask, request, jsonify, render_template
+import constants
+import os
 
 app = Flask(__name__)
 
-model = pickle.load(open('model_GradientBoostingClassifier.pkl', 'rb'))
+def load_model(path = constants.model_name):
 
-@app.route('/')
-def predict():
-    features = [float(x) for x in request.form.values()]
-    final_features = [np.array(features)]
-    output = model.predict(final_features)
-    
-    if output == 1:
-        return render_template('index.html', prediction_text = 'Client will get a stroke')
+    if os.path.exists(path):
+        model = pickle.load(path)
     else:
-        return render_template('index.html', prediction_text = 'Client will not get a stroke')
+        raise FileNotFoundError('Specified model does not exist.')
+    
+    return model
 
-@app.route('/predict_api', methods = ['POST'])
-def predict_api():
-    data = request.get_json(force = True)
-    prediction = model.predict([np.array(list(data.values()))])
 
-    output = prediction[0]
-    return jsonify(output)
+def predict():
+    pass
+    
 
 if __name__ == "__main__":
     app.run(debug=True)
