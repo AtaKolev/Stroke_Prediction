@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container">
+        <h1>Stroke Detector: SD Questionaire</h1>
+
+    </br><hr></br>
+
+    <form method="POST" action="/romscam">
+            <b style="color:black">Settings:</b></br>
+            <div class="dropdown">
+                <button class="dropbtn">Gender: </button>
+                <div class="dropdown-content">
+                  <a href="#">Male</a>
+                  <a href="#">Female</a>
+                  <a href="#">Preffer not to specify</a>
+                </div>
+            </div>
+            <input type="number" name="mycheckbox" value=0 required>Age: </br> 
+            <input type="text" name="mycheckbox" value = '' required>Do you experience Hypertension? (Yes/No)</br>
+            <input type="text" name="mycheckbox" value = '' required>Do you currently have a Heart Disease? (Yes/No)</br> 
+            <input type="text" name="mycheckbox" value='' required>Have you ever married? (Yes/No)</br>
+            <input type="text" name="mycheckbox" value='' required>What is your worktype? (Private/Self-Employed/</br> 
+            <input type="submit" value="Submit"></br> 
+    </form>
+    </br>
+{% endblock %}

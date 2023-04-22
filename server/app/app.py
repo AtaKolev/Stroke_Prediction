@@ -18,7 +18,22 @@ def load_model(path = constants.model_name):
 
 def predict():
     pass
-    
+
+
+
+
+#############################################################################################
+# APP ROUTES
+#############################################################################################
+@app.route('/', methods = ['GET', 'POST'])
+def home():
+    title = 'SD: Home'
+    return render_template('index.html', title = title)
+
+@app.route('/questionaire', methods = ['GET', 'POST'])
+def questionaire():
+    title = 'SD: Questionaire'
+    return render_template('questionaire.html', title = title)
 
 if __name__ == "__main__":
     app.run(debug=True)
